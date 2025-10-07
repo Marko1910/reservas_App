@@ -1,0 +1,14 @@
+<h1>Lista de Reservas</h1>
+<a href="{% url 'crear_reserva' %}">Agregar Reserva</a>
+<ul>
+  {% for reserva in reservas %}
+    <li>{{ reserva.cliente.nombre }} - {{ reserva.habitacion }} - {{ reserva.fecha_reserva }}
+      {% if reserva.comprobante %}
+        <br><img src="{{ reserva.comprobante.url }}" width="100">
+      {% endif %}
+      <br>
+      <a href="{% url 'editar_reserva' reserva.id %}">Editar</a>
+      <a href="{% url 'eliminar_reserva' reserva.id %}">Eliminar</a>
+    </li>
+  {% endfor %}
+</ul>

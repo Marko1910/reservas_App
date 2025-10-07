@@ -1,0 +1,17 @@
+# Archivos del entorno virtual
+venv/
+.env
+__pycache__/
+*.pyc
+
+# Archivos de configuración local
+db.sqlite3
+
+# Archivos estáticos generados
+staticfiles/
+media/
+
+# Configuración específica del sistema
+*.log
+.idea/
+.vscode/

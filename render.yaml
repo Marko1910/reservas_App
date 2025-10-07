@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: reservas-app
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn reservas_app.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: reservas_app.settings
+      - key: PYTHON_VERSION
+        value: 3.12.2
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
