@@ -4,6 +4,10 @@ from .forms import ClienteForm, ReservaForm
 
 # Create your views here.
 
+
+def index(request): 
+    return render(request, 'reservas/home.html') 
+
 def lista_clientes(request):
     clientes = Cliente.objects.all()
     return render(request, 'reservas/lista_clientes.html', {'clientes': clientes})
