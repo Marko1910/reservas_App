@@ -1,1 +1,0 @@
-web: gunicorn RESERVASAPP.reservas_app.wsgi:application
