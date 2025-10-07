@@ -1,0 +1,1 @@
+web: gunicorn --chdir reservas_app reservas_app.wsgi:application
