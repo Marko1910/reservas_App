@@ -87,8 +87,7 @@ WSGI_APPLICATION = 'reservas_app.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=env('DATABASE_URL', default='postgresql://root:root@localhost:5432/reservas_db'),
+     'default': dj_database_url.config(
         conn_max_age=600
     )
 }
