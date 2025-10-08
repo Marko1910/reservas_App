@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sistema de Reservas{% endblock %}</title>
+</head>
+<body>
+    <div class="container mt-4">
+
+        <nav class="mb-3">
+            {% if request.resolver_match.url_name != 'index' %}
+                <a href="{% url 'index' %}" style="text-decoration: none;">
+                    &larr; Ir al Menú Principal
+                </a>
+            {% endif %}
+        </nav>
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+</body>
+</html>
