@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Cliente, Reserva
 from .forms import ClienteForm, ReservaForm
+from django.views.decorators.cache import never_cache
 
 # Create your views here.
 
@@ -11,7 +12,7 @@ def index(request):
 def lista_clientes(request):
     clientes = Cliente.objects.all()
     return render(request, 'reservas/lista_clientes.html', {'clientes': clientes})
-
+@never_cache
 def crear_cliente(request):
     if request.method == 'POST':
         form = ClienteForm(request.POST)
@@ -21,7 +22,7 @@ def crear_cliente(request):
     else:
         form = ClienteForm()
     return render(request, 'reservas/crear_cliente.html', {'form': form})
-
+@never_cache
 def editar_cliente(request, id):
     cliente = get_object_or_404(Cliente, id=id)
     if request.method == 'POST':
@@ -43,7 +44,7 @@ def eliminar_cliente(request, id):
 def lista_reservas(request):
     reservas = Reserva.objects.all()
     return render(request, 'reservas/lista_reservas.html', {'reservas': reservas})
-
+@never_cache
 def crear_reserva(request):
     if request.method == 'POST':
         form = ReservaForm(request.POST, request.FILES)
@@ -53,7 +54,7 @@ def crear_reserva(request):
     else:
         form = ReservaForm()
     return render(request, 'reservas/crear_reserva.html', {'form': form})
-
+@never_cache
 def editar_reserva(request, id):
     reserva = get_object_or_404(Reserva, id=id)
     if request.method == 'POST':
@@ -64,7 +65,7 @@ def editar_reserva(request, id):
     else:
         form = ReservaForm(instance=reserva)
     return render(request, 'reservas/editar_reserva.html', {'form': form})
-
+@never_cache
 def eliminar_reserva(request, id):
     reserva = get_object_or_404(Reserva, id=id)
     reserva.delete()
