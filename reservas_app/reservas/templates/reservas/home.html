@@ -2,12 +2,36 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Página de Inicio</title>
+    <title>Menú Principal</title>
 </head>
 <body>
-    <h1>¡EL DESPLIEGUE EN RENDER FUE EXITOSO!</h1>
-    <p>La aplicación Django ha cargado la plantilla correctamente. Ahora puedes trabajar en el diseño.</p>
+    <h1>Bienvenido al Sistema de Reservas</h1>
+    
+    <hr>
+    
+    <h2>Módulo de Clientes</h2>
+    <ul>
+        <li>
+            <a href="{% url 'lista_clientes' %}">Ver todos los Clientes</a> 
+            (CRUD: Read, Edit, Delete)
+        </li>
+        <li>
+            <a href="{% url 'crear_cliente' %}">Agregar Nuevo Cliente</a>
+        </li>
+    </ul>
+    
+    <hr>
 
-    <p><a href="{% url 'lista_clientes' %}">Ir a la Lista de Clientes</a></p>
+    <h2>Módulo de Reservas</h2>
+    <ul>
+        <li>
+            <a href="{% url 'lista_reservas' %}">Ver todas las Reservas</a> 
+            (CRUD: Read, Edit, Delete)
+        </li>
+        <li>
+            <a href="{% url 'crear_reserva' %}">Crear Nueva Reserva</a>
+        </li>
+    </ul>
+
 </body>
 </html>
