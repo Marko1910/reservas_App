@@ -18,6 +18,8 @@ class Habitacion(models.Model):
     precio_noche = models.DecimalField(max_digits=8, decimal_places=2)
     disponible = models.BooleanField(default=True)
     imagen = models.ImageField(upload_to='habitaciones/', blank=True, null=True)
+    numero = models.CharField(max_length=10)
+    tipo = models.CharField(max_length=50)
 
 
     def __str__(self):
@@ -26,7 +28,7 @@ class Habitacion(models.Model):
 
 class Reserva(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    habitacion = models.CharField(max_length=100)
+    habitacion = models.ForeignKey(Habitacion, on_delete=models.CASCADE) 
     fecha_inicio = models.DateTimeField(default=timezone.now)
     fecha_fin = models.DateTimeField(default=timezone.now)
     fecha_reserva = models.DateTimeField(auto_now_add=True)
